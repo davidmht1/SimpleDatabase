@@ -29,5 +29,6 @@ public static class MauiProgram
         return builder.Build();
 
 		//comment
+		//comment too
 	}
 }
