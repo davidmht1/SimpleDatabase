@@ -17,8 +17,17 @@ public static class MauiProgram
 				fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
 			});
 
+		string directory = "C:\\Database";
+
+		if(!Directory.Exists(directory))
+		{
+			System.IO.Directory.CreateDirectory(directory);
+		}
+        
+
 		// TODO: Add statements for adding PersonRepository as a singleton
-		string dbPath = FileAccessHelper.GetLocalFilePath("C:\\Users\\david\\OneDrive\\Desktop\\All\\Coding\\C#\\DataBase Practice\\People\\people.db3");
+		string dbPath = FileAccessHelper.GetLocalFilePath("C:\\Database\\people.db3");
+		
 		
 		//builder for creating the PersonTable
 		builder.Services.AddSingleton<PersonRepository>(s => ActivatorUtilities.CreateInstance<PersonRepository>(s, dbPath));
